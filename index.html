@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kutu Buku | Arsip Untuk Koleksi Buku Kamu</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img id="logo" src="img/kb-logo.png" alt="Kutu Buku" />
+        <div class="kolom-pencarian">
+          <i id="hambMenu" class="bi bi-list"></i>
+          <input type="text" id="cariBuku" name="cariBuku" placeholder="Cari nama buku..." />
+          <i id="tombolCari" class="bi bi-search"></i>
+        </div>
+        <i id="tombolPengaturan" class="bi bi-gear-fill"></i>
+      </nav>
+    </header>
+
+    <main>
+      <div id="menu" class="col">
+        <div class="tambah-buku">
+          <button id="tombolTambahBuku"><i class="bi bi-plus"></i> Tambah Buku</button>
+        </div>
+        <div class="daftar-menu">
+          <div id="menu1" class="semua-buku group active">
+            <div class="icon">
+              <img class="icon-semua-buku" src="img/kb-book-stack-dark.png" alt="semua buku" />
+            </div>
+            <h1 class="menu">Semua Buku</h1>
+          </div>
+          <div id="menu2" class="sudah-dibaca group">
+            <div class="icon">
+              <img class="icon-sudah-dibaca" src="img/kb-book-opened-dark.png" alt="semua buku" />
+            </div>
+            <h1 class="menu">Sudah Dibaca</h1>
+          </div>
+          <div id="menu3" class="belum-dibaca group">
+            <div class="icon">
+              <img class="icon-belum-dibaca" src="img/kb-book-closed-dark.png" alt="semua buku" />
+            </div>
+            <h1 class="menu">Belum Dibaca</h1>
+          </div>
+        </div>
+      </div>
+      <div id="konten" class="col">
+        <article id="tambahBuku" class="menu-konten" hidden>
+          <h1 id="formTambahEdit" class="judul">Tambah Buku</h1>
+          <section class="container">
+            <form id="formBukuBaru">
+              <label for="namaBuku">Judul Buku</label>
+              <input class="textType" type="text" id="formNamaBuku" name="namaBuku" placeholder="tulis judul buku..." required />
+              <label for="penulisBuku">Author/penulis Buku</label>
+              <input class="textType" type="text" id="formPenulisBuku" name="penulisBuku" placeholder="tulis nama penulis..." required />
+              <label for="tanggalTerbit">Tanggal Penerbitan</label>
+              <input class="textType" type="date" id="formTanggalTerbit" name="tanggalTerbit" required />
+              <div class="checkbox">
+                <input type="checkbox" id="cbSudahDibaca" name="cbSudahDibaca" />
+                <label for="cbSudahDibaca">Tandai Sudah Dibaca</label>
+              </div>
+              <input id="submitBtn" type="submit" value="Simpan" name="Simpan" />
+              <input id="submitChangeBtn" type="button" value="Simpan Perubahan" name="Simpan Perubahan" />
+            </form>
+          </section>
+        </article>
+        <article id="semuaBuku" class="menu-konten">
+          <h1 class="judul">Semua Buku</h1>
+          <section class="container">
+            <!-- <div class="card">
+              <div class="card-row1">
+                <div class="col1">
+                  <h3 id="cardJudulBuku">Harry Potter and The Goblet of Fire</h3>
+                  <h4 id="cardIDBuku">ID: 131764194910933</h4>
+                  <h4 id="cardPenulisBuku">Penulis: J. K. Rowling</h4>
+                  <h5 id="cardTahunTerbit">Tahun terbit: 2000</h5>
+                </div>
+                <div class="col2">
+                  <i class="bi bi-pencil-square"></i>
+                  <p id="status">Belum Dibaca</p>
+                </div>
+              </div>
+              <div class="card-row2">
+                <button id="statusBtn" class="read">Tandai Sudah Dibaca</button>
+                <button id="eraseBtn"><i class="bi bi-trash-fill"></i></button>
+              </div>
+            </div> -->
+          </section>
+        </article>
+        <article id="sudahDibaca" class="menu-konten" hidden>
+          <h1 class="judul">Sudah Dibaca</h1>
+          <section class="container"></section>
+        </article>
+        <article id="belumDibaca" class="menu-konten" hidden>
+          <h1 class="judul">Belum Dibaca</h1>
+          <section class="container"></section>
+        </article>
+        <article id="hasilPencarian" class="menu-konten" hidden>
+          <h1 class="judul">Hasil Pencarian</h1>
+          <section class="container"></section>
+        </article>
+      </div>
+      <div id="pengaturan" class="col">
+        <h2>Pengaturan</h2>
+        <div class="kontenPengaturan">
+          <div class="set1 wrapper">
+            <div class="switch">
+              <div class="toggle"></div>
+            </div>
+            <h4 class="setLabel">Notifikasi Aksi</h4>
+          </div>
+          <div class="set2 wrapper">
+            <div class="switch">
+              <div class="toggle"></div>
+            </div>
+            <h4 class="setLabel">Peringatan Hapus</h4>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside id="notifikasi">
+      <!-- <p id="teksNotifikasi"></p> -->
+    </aside>
+
+    <aside id="peringatan">
+      <div class="peringatan-wrapper">
+        <p id="teksPeringatan">Anda yakin ingin menghapus Buku ini?</p>
+        <div class="buttons">
+          <button id="yes">Ya</button>
+          <button id="no">Tidak</button>
+        </div>
+      </div>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
