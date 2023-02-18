@@ -469,6 +469,29 @@ section.container {
   margin-left: 20px;
 }
 
+#clearDataBtn {
+  padding: 20px 10px;
+  margin-top: 30px;
+  color: white;
+  font-size: 12pt;
+  font-weight: 700;
+  background-color: var(--mediumRed);
+  border: none;
+  border-radius: 50px;
+  box-shadow: 4px 4px 10px 1px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+#clearDataBtn:hover {
+  scale: 1.05;
+}
+
+#clearDataBtn i {
+  margin-right: 5px;
+  font-size: 16pt;
+  color: white;
+}
+
 /* ---------------------------- NOTIFIKASI ---------------------------- */
 
 #notifikasi {

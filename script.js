@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tombol1 = document.querySelectorAll('.toggle')[0];
   const wadahTombol2 = document.querySelectorAll('.switch')[1];
   const tombol2 = document.querySelectorAll('.toggle')[1];
+  const clearData = document.getElementById('clearDataBtn');
 
   if (localStorage.getItem(sttgKey) !== null) {
     const currentSetting = JSON.parse(localStorage.getItem(sttgKey));
@@ -555,4 +556,43 @@ document.addEventListener('DOMContentLoaded', () => {
       windowPeringatan.style.display = 'none';
     });
   }
+
+  function peringatanClearData() {
+    windowPeringatan.style.display = 'flex';
+
+    yesBtn.addEventListener('click', () => {
+      books = [];
+      localStorage.setItem(strgKey, JSON.stringify(books));
+
+      if (menuCount == 1) {
+        windowPeringatan.style.display = 'none';
+        notifikasiAksi('Semua Data Buku Berhasil Dihapus!');
+        document.dispatchEvent(new Event(RENDER_SEMUA_BUKU));
+      }
+      if (menuCount == 2) {
+        windowPeringatan.style.display = 'none';
+        notifikasiAksi('Semua Data Buku Berhasil Dihapus!');
+        document.dispatchEvent(new Event(RENDER_SUDAH_DIBACA));
+      }
+      if (menuCount == 3) {
+        windowPeringatan.style.display = 'none';
+        notifikasiAksi('Semua Data Buku Berhasil Dihapus!');
+        document.dispatchEvent(new Event(RENDER_BELUM_DIBACA));
+      }
+    });
+
+    noBtn.addEventListener('click', () => {
+      windowPeringatan.style.display = 'none';
+    });
+  }
+
+  clearData.addEventListener('click', () => {
+    if (storageCheck) {
+      if (JSON.parse(localStorage.getItem(strgKey)).length !== 0) {
+        peringatanClearData();
+      } else {
+        notifikasiAksi('Anda belum memiliki data Buku apapun!');
+      }
+    }
+  });
 });
